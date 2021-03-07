@@ -3,6 +3,18 @@ import feather from 'feather-icons';
 function Themer({ trigger = '' } = {}) {
   let element = trigger;
   let defaultState = localStorage.getItem('theme') || 'system';
+
+  if (element) {
+    if (typeof trigger === 'string') {
+      element = document.querySelector(trigger);
+    }
+
+    element.addEventListener('click', () => {
+      const theme = getNextTheme();
+      setTheme(theme);
+    });
+  }
+
   setTheme(defaultState);
 
   const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
@@ -18,17 +30,6 @@ function Themer({ trigger = '' } = {}) {
       metaThemeColor.content = darkModeOn ? '#121212' : '#eceff4';
     }
   });
-
-  if (element) {
-    if (typeof trigger === 'string') {
-      element = document.querySelector(trigger);
-    }
-
-    element.addEventListener('click', () => {
-      const theme = getNextTheme();
-      setTheme(theme);
-    });
-  }
 
   function getNextTheme() {
     const current = localStorage.getItem('theme');
