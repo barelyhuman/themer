@@ -87,6 +87,7 @@ function Themer({ trigger = '' } = {}) {
       }
       case 'dark': {
         document.body.setAttribute('data-dark-mode', 'dark');
+        break;
       }
       case 'system': {
         if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
@@ -94,6 +95,7 @@ function Themer({ trigger = '' } = {}) {
         } else {
           document.body.removeAttribute('data-dark-mode');
         }
+        break;
       }
     }
 
