@@ -1,5 +1,5 @@
 # themer
-one line dark mode support for javascript
+One line dark mode support for javascript
 
 # DISCLAIMER: PACKAGE NOT YET PUSHED TO NPM / UNPKG
 

@@ -1,16 +1,32 @@
 {
   "name": "@barelyreaper/themer",
-  "version": "0.0.0",
+  "description": "One line dark mode support for javascript",
+  "version": "0.0.1",
   "private": false,
+  "homepage": "https://github.com/barelyhuman/themer",
+  "bugs": "https://github.com/barelyhuman/themer/issues/",
   "main": "dist/index.umd.js",
+  "browser": "dist/index.umd.js",
+  "author": "Reaper <ahoy@barelyhuman.dev> (http://reaper.im/)",
+  "keywords": [
+    "dark theme",
+    "dark",
+    "mode",
+    "vanilla",
+    "js",
+    "themer"
+  ],
   "files": [
-    "dist/*"
+    "dist/"
   ],
   "license": "MIT",
   "devDependencies": {
     "@rollup/plugin-babel": "^5.3.0",
     "rollup": "^2.40.0",
     "rollup-plugin-uglify": "^6.0.4"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "scripts": {
     "dev": "rollup -c -w",
