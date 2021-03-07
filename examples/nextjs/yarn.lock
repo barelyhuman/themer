@@ -39,9 +39,10 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@barelyreaper/themer@barelyhuman/themer":
-  version "0.0.0"
-  resolved "https://codeload.github.com/barelyhuman/themer/tar.gz/580bc45cdda675a1e38f4d3ce0f1e170671a3ac8"
+"@barelyreaper/themer@^0.0.4":
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/@barelyreaper/themer/-/themer-0.0.4.tgz#aebd29a6782f14a714fb712810342835de46db29"
+  integrity sha512-IL3dmuQ2qRkIP+gMirNr8rRaszGUSWFLBI2TsoGFm6+zQAGEJmmPflor1/j3NSZEb1N03Rr3kwbxLiVoTxipKg==
 
 "@hapi/accept@5.0.1":
   version "5.0.1"

@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import Themer from '@barelyreaper/themer';
 import { useEffect, useState } from 'react';
 
@@ -9,7 +8,7 @@ export default function Home() {
   }, []);
 
   function initThemer() {
-    new Themer({ trigger: document.querySelector('#toggleIt') });
+    new Themer({ trigger: document.getElementById('toggleTheme') });
   }
 
   const handleButtonClick = () => {
@@ -25,15 +24,15 @@ export default function Home() {
 
   return (
     <>
-      <main class="container-bounds">
+      <main className="container-bounds">
         <h1>Themer</h1>
         <div>
-          <button class="no-border icon" id="toggleTheme"></button>
+          <button className="no-border icon" id="toggleTheme"></button>
         </div>
         <br />
         <br />
         <div>
-          <button onClick={handleButtonClick} class="secondary">
+          <button onClick={handleButtonClick} className="secondary">
             Toggle Dark/Light
           </button>
         </div>
