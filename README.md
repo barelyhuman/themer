@@ -1,7 +1,7 @@
 # themer
 One line dark mode support for javascript
 
-# DISCLAIMER: PACKAGE NOT YET PUSHED TO NPM / UNPKG
+![](https://badgen.net/bundlephobia/min/)
 
 # About
 Themer adds a `data-dark-mode` attribute to the `body` tag on your `index.html`.
@@ -33,8 +33,32 @@ new Themer({trigger: document.getElementById('themeToggleButton') })
 new Themer({trigger: '#themeToggleButton' })
 ```
 
+Write the css classes with respect to the existence of `data-dark-mode` attribute on the body tag
 
-```styles.css
+```css
+
+:root {
+    --bg: #eceff4;
+    --bg-light: #e5e9f0;
+    --bg-lighter: #d8dee9;
+    --fg: #2e3440;
+    --fg-light: #3b4252;
+    --fg-lighter: #434c5e;
+    --shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+  }
+
+  body[data-dark-mode='dark'] {
+    --bg: #121212;
+    --bg-light: #191919;
+    --bg-lighter: #252525;
+    --fg: #d8dee9;
+    --fg-light: #e5e9f0;
+    --fg-lighter: #eceff4;
+    --shadow: rgb(15 17 21 / 20%) 0px 3px 6px 0px;
+  }
+
+  /* Remaing Styles and needed Over-rides */
+  /* .... */
 
 ```
 
@@ -66,7 +90,6 @@ yarn build
 - clone it
 - do your magic 
 - raise a PR!
-
 
 
 
