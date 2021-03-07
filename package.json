@@ -1,7 +1,7 @@
 {
   "name": "@barelyreaper/themer",
   "description": "One line dark mode support for javascript",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "private": false,
   "homepage": "https://github.com/barelyhuman/themer",
   "bugs": "https://github.com/barelyhuman/themer/issues/",
