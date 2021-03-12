@@ -2,26 +2,30 @@ import feather from 'feather-icons';
 
 function Themer({ trigger = '', metaTagId = 'themeColor' } = {}) {
   // Config init and variable initializations
-  let element = trigger;
+  let triggerElement = trigger;
   let defaultState = localStorage.getItem('theme') || 'system';
 
   // Methods Invocations
-  handleElementTrigger(element);
+  triggerElement = normalizeTrigger(triggerElement);
   setTheme(defaultState);
   setupPreferenceListeners();
 
   // Scoped functions
-  function handleElementTrigger(elm) {
+  function normalizeTrigger(elm) {
+    let trigger = false;
     if (elm) {
       if (typeof trigger === 'string') {
-        elm = document.querySelector(trigger);
+        trigger = document.querySelector(trigger);
       }
 
-      elm.addEventListener('click', () => {
-        const theme = getNextTheme();
-        setTheme(theme);
-      });
+      if (trigger instanceof HTMLElement) {
+        trigger.addEventListener('click', () => {
+          const theme = getNextTheme();
+          setTheme(theme);
+        });
+      }
     }
+    return trigger;
   }
 
   function setTheme(theme) {
@@ -78,9 +82,9 @@ function Themer({ trigger = '', metaTagId = 'themeColor' } = {}) {
   }
 
   function updateStorageAndElements(theme) {
-    if (element) {
+    if (triggerElement) {
       const iconSVG = getIcon(theme);
-      element.innerHTML = iconSVG;
+      triggerElement.innerHTML = iconSVG;
     }
 
     switch (theme) {
