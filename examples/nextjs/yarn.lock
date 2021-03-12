@@ -39,10 +39,10 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@barelyreaper/themer@^0.0.6":
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/@barelyreaper/themer/-/themer-0.0.6.tgz#1360d64bde639df5ee63088e14032eabb2a14e0a"
-  integrity sha512-I1zo0/YkI1jz1FpMKH5nKlTIS/4idSDJZuUsI0wc129Zuqe/xFn3N7BKZxmCvPlEpYT2dohSLlEkUYQ/JaIkog==
+"@barelyreaper/themer@^0.0.7":
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/@barelyreaper/themer/-/themer-0.0.7.tgz#d3259c077597a91c19349689f1186a16863b6489"
+  integrity sha512-iCul53xPbcmk1ZEIPUvSAIKmajVvvpvX0xLsFnV2/A2LUCllLaAlczjDi0AsjGosoILozfWy0FW+fJ7ZV/W/uQ==
 
 "@hapi/accept@5.0.1":
   version "5.0.1"
