@@ -1,12 +1,14 @@
 import Themer from '@barelyreaper/themer';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import '../static/vendor/prism';
 import feather from 'feather-icons';
 
 export default function Home() {
-  const [theme, setTheme] = useState('light');
+  let themerInstance;
+
   useEffect(() => {
     initThemer();
+    themerInstance = new Themer();
   }, []);
 
   function initThemer() {
@@ -77,9 +79,29 @@ export default function Home() {
             <a href="https://commitlog-web.herokuapp.com">commitlog-web</a> and
             on this very site.
           </p>
+          <p>or you could use the below custom implementation</p>
+          <div>
+            <button
+              onClick={(e) => themerInstance.setTheme('light')}
+            >
+              Enable Light Mode
+            </button>
+            <button
+              className="ml-1"
+              onClick={(e) => themerInstance.setTheme('dark')}
+            >
+              Enable Dark Mode
+            </button>
+            <button
+              className="ml-1"
+              onClick={(e) => themerInstance.setTheme('system')}
+            >
+              Use System Preference
+            </button>
+          </div>
         </article>
 
-        <article>
+        <article className="mt-1">
           <h2 id="usage">Usage</h2>
           <p>
             The library was built for vanilla javascript so it's pretty easy to

@@ -1,35 +1,37 @@
 import feather from 'feather-icons';
 
-function Themer({ trigger = '' } = {}) {
+function Themer({ trigger = '', metaTagId = 'themeColor' } = {}) {
+  // Config init and variable initializations
   let element = trigger;
   let defaultState = localStorage.getItem('theme') || 'system';
 
-  if (element) {
-    if (typeof trigger === 'string') {
-      element = document.querySelector(trigger);
-    }
+  // Methods Invocations
+  handleElementTrigger(element);
+  setTheme(defaultState);
+  setupPreferenceListeners();
 
-    element.addEventListener('click', () => {
-      const theme = getNextTheme();
-      setTheme(theme);
-    });
+  // Scoped functions
+  function handleElementTrigger(elm) {
+    if (elm) {
+      if (typeof trigger === 'string') {
+        elm = document.querySelector(trigger);
+      }
+
+      elm.addEventListener('click', () => {
+        const theme = getNextTheme();
+        setTheme(theme);
+      });
+    }
   }
 
-  setTheme(defaultState);
-
-  const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-
-  darkModeMediaQuery.addEventListener('change', (e) => {
-    const darkModeOn = e.matches;
-    if (darkModeOn) {
-      document.body.setAttribute('data-dark-mode', 'dark');
-    } else {
-      document.body.removeAttribute('data-dark-mode');
-    }
+  function setTheme(theme) {
+    const metaThemeColor = document.getElementById(metaTagId);
+    updateStorageAndElements(theme);
     if (metaThemeColor) {
-      metaThemeColor.content = darkModeOn ? '#121212' : '#eceff4';
+      const isDark = document.body.getAttribute('data-dark-mode');
+      metaThemeColor.content = isDark ? '#121212' : '#eceff4';
     }
-  });
+  }
 
   function getNextTheme() {
     const current = localStorage.getItem('theme');
@@ -103,15 +105,33 @@ function Themer({ trigger = '' } = {}) {
     localStorage.setItem('theme', theme);
   }
 
-  function setTheme(theme) {
-    const metaThemeColor = document.getElementById('themeColor');
-    updateStorageAndElements(theme);
+  function setupPreferenceListeners() {
+    const darkModeMediaQuery = window.matchMedia(
+      '(prefers-color-scheme: dark)'
+    );
+    darkModeMediaQuery.addEventListener('change', handlePrefsChange);
+  }
+
+  function handlePrefsChange(e) {
+    const isSupportSystem = localStorage.getItem('theme') === 'system';
+
+    if (!isSupportSystem) {
+      return;
+    }
+
+    const metaThemeColor = document.getElementById(metaTagId);
+    const darkModeOn = e.matches;
+    if (darkModeOn) {
+      document.body.setAttribute('data-dark-mode', 'dark');
+    } else {
+      document.body.removeAttribute('data-dark-mode');
+    }
     if (metaThemeColor) {
-      const isDark = document.body.getAttribute('data-dark-mode');
-      metaThemeColor.content = isDark ? '#121212' : '#eceff4';
+      metaThemeColor.content = darkModeOn ? '#121212' : '#eceff4';
     }
   }
 
+  //  Exposed functions
   this.setTheme = setTheme;
 }
 
