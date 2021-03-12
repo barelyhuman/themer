@@ -12,19 +12,22 @@ function Themer({ trigger = '', metaTagId = 'themeColor' } = {}) {
 
   // Scoped functions
   function normalizeTrigger(elm) {
-    let trigger = false;
-    if (elm) {
-      if (typeof trigger === 'string') {
-        trigger = document.querySelector(trigger);
-      }
+    let trigger = elm || false;
+	  if(trigger){
 
-      if (trigger instanceof HTMLElement) {
-        trigger.addEventListener('click', () => {
-          const theme = getNextTheme();
-          setTheme(theme);
-        });
-      }
-    }
+		if(typeof trigger === 'string'){
+			trigger = document.querySelector(trigger);
+		}
+
+		  if(trigger instanceof HTMLElement){
+			trigger.addEventListener('click',()=>{
+				const theme = getNextTheme();
+				setTheme(theme);
+			});
+		  }
+
+		 
+	  }
     return trigger;
   }
 
