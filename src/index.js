@@ -1,5 +1,3 @@
-import feather from 'feather-icons';
-
 function Themer({ trigger = '', metaTagId = 'themeColor' } = {}) {
   // Config init and variable initializations
   let triggerElement = trigger;
@@ -13,21 +11,18 @@ function Themer({ trigger = '', metaTagId = 'themeColor' } = {}) {
   // Scoped functions
   function normalizeTrigger(elm) {
     let trigger = elm || false;
-	  if(trigger){
+    if (trigger) {
+      if (typeof trigger === 'string') {
+        trigger = document.querySelector(trigger);
+      }
 
-		if(typeof trigger === 'string'){
-			trigger = document.querySelector(trigger);
-		}
-
-		  if(trigger instanceof HTMLElement){
-			trigger.addEventListener('click',()=>{
-				const theme = getNextTheme();
-				setTheme(theme);
-			});
-		  }
-
-		 
-	  }
+      if (trigger instanceof HTMLElement) {
+        trigger.addEventListener('click', () => {
+          const theme = getNextTheme();
+          setTheme(theme);
+        });
+      }
+    }
     return trigger;
   }
 
@@ -35,7 +30,7 @@ function Themer({ trigger = '', metaTagId = 'themeColor' } = {}) {
     const metaThemeColor = document.getElementById(metaTagId);
     updateStorageAndElements(theme);
     if (metaThemeColor) {
-      const isDark = document.body.getAttribute('data-dark-mode');
+      const isDark = document.body.getAttribute('data-dark-mode') === 'dark';
       metaThemeColor.content = isDark ? '#121212' : '#eceff4';
     }
   }
@@ -92,7 +87,7 @@ function Themer({ trigger = '', metaTagId = 'themeColor' } = {}) {
 
     switch (theme) {
       case 'light': {
-        document.body.removeAttribute('data-dark-mode');
+        document.body.setAttribute('data-dark-mode','light');
         break;
       }
       case 'dark': {
@@ -131,7 +126,7 @@ function Themer({ trigger = '', metaTagId = 'themeColor' } = {}) {
     if (darkModeOn) {
       document.body.setAttribute('data-dark-mode', 'dark');
     } else {
-      document.body.removeAttribute('data-dark-mode');
+      document.body.setAttribute('data-dark-mode', 'light');
     }
     if (metaThemeColor) {
       metaThemeColor.content = darkModeOn ? '#121212' : '#eceff4';
@@ -141,5 +136,3 @@ function Themer({ trigger = '', metaTagId = 'themeColor' } = {}) {
   //  Exposed functions
   this.setTheme = setTheme;
 }
-
-export default Themer;

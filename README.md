@@ -62,6 +62,23 @@ Write the css classes with respect to the existence of `data-dark-mode` attribut
 
 ```
 
+**NOTE**: as of v0.1.0 , `data-dark-mode` is set with `light` or `dark` based on the JS, this is to allow you to use css like below when javascript is not available/disabled and you want to the app to respect the user's system setting
+
+```css
+/* Handle default system selection when javascript is unavailable */
+@media (prefers-color-scheme: dark) {
+  body:not([data-dark-mode]) {
+    --bg: #121212;
+    --bg-light: #191919;
+    --bg-lighter: #252525;
+    --fg: #d8dee9;
+    --fg-light: #e5e9f0;
+    --fg-lighter: #eceff4;
+    --shadow: rgb(15 17 21 / 20%) 0px 3px 6px 0px;
+  }
+}
+```
+
 # Advanced Usage
 
 You can check more examples in the [examples folder](/examples)
