@@ -31,19 +31,19 @@ export default function Home() {
         </div>
 
         <nav>
-          <a className="ml-1" href="#about">
+          <a className="ml-2" href="#about">
             About
           </a>
-          <a className="ml-1" href="#demo">
+          <a className="ml-2" href="#demo">
             Demo
           </a>
-          <a className="ml-1" href="#usage">
+          <a className="ml-2" href="#usage">
             Usage
           </a>
-          <a className="ml-1" href="#support">
+          <a className="ml-2" href="#support">
             Support
           </a>
-          <a className="ml-1" href="https://github.com/barelyhuman/commitlog">
+          <a className="ml-2" href="https://github.com/barelyhuman/commitlog">
             Github{' '}
             <span>
               <i data-feather="external-link"></i>
