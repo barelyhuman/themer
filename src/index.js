@@ -1,4 +1,4 @@
-function Themer({ trigger = '', metaTagId = 'themeColor' } = {}) {
+export default function Themer({ trigger = '', metaTagId = 'themeColor' } = {}) {
   // Config init and variable initializations
   let triggerElement = trigger;
   let defaultState = localStorage.getItem('theme') || 'system';
@@ -136,5 +136,3 @@ function Themer({ trigger = '', metaTagId = 'themeColor' } = {}) {
   //  Exposed functions
   this.setTheme = setTheme;
 }
-
-module.exports = Themer;
