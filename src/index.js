@@ -136,3 +136,5 @@ function Themer({ trigger = '', metaTagId = 'themeColor' } = {}) {
   //  Exposed functions
   this.setTheme = setTheme;
 }
+
+module.exports = Themer;
