@@ -1,4 +1,9 @@
-export default function Themer({ trigger = '', metaTagId = 'themeColor' } = {}) {
+import feather from 'feather-icons';
+
+export default function Themer({
+  trigger = '',
+  metaTagId = 'themeColor',
+} = {}) {
   // Config init and variable initializations
   let triggerElement = trigger;
   let defaultState = localStorage.getItem('theme') || 'system';
@@ -87,7 +92,7 @@ export default function Themer({ trigger = '', metaTagId = 'themeColor' } = {}) 
 
     switch (theme) {
       case 'light': {
-        document.body.setAttribute('data-dark-mode','light');
+        document.body.setAttribute('data-dark-mode', 'light');
         break;
       }
       case 'dark': {
