@@ -1,7 +1,15 @@
 # themer
 One line dark mode support for javascript
 
-![](https://badgen.net/bundlephobia/min/)
+
+ <p>
+ <img alt="GitHub" src="https://img.shields.io/github/license/barelyhuman/themer?logoColor=000&colorA=000000&colorB=000000">
+<a href="https://bundlephobia.com/result?p=@barelyreaper/themer"><img src="https://img.shields.io/bundlephobia/minzip/@barelyreaper/themer?label=bundle%20size&amp;style=flat&amp;colorA=000000&amp;colorB=000000" alt="Build Size"></a>
+ <a href="https://www.npmjs.com/package/@barelyreaper/themer"><img src="https://img.shields.io/npm/v/@barelyreaper/themer?style=flat&amp;colorA=000000&amp;colorB=000000" alt="Version"></a>
+ <a href="https://www.npmjs.com/package/@barelyreaper/themer"><img src="https://img.shields.io/npm/dt/@barelyreaper/themer.svg?style=flat&amp;colorA=000000&amp;colorB=000000" alt="Downloads"></a>
+ </p>
+
+
 
 # About
 Themer adds a `data-dark-mode` attribute to the `body` tag on your `index.html`.
