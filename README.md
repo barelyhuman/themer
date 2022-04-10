@@ -33,7 +33,7 @@ import {
   getCurrentTheme, // returns a string pointing to "auto","dark","light"
   getCurrentThemeSimplified, // returns a string pointing to "dark","light" (to be used for icons as the "auto" mode depends on a combination of preferences)
   toggleTheme, // the handler that you'll add to your button
-} from "../dist/index.js";
+} from "@barelyreaper/themer";
 ```
 
 Write the css classes with respect to the existence of `data-dark-mode` attribute on the body tag
