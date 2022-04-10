@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Themer</title>
+
+    <link
+      rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/atom-one-dark.min.css"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <section id="app" class="flex flex-col center">
+      <button></button>
+      <p id="currentTheme"></p>
+      <pre><code class="language-bash">
+$ npm i @barelyreaper/themer
+      </code></pre>
+
+      <pre><code>
+// Example below is in React, but the library is framework agnostic
+import {init,getCurrentThemeSimplified,toggleTheme} from "@barelyreaper/themer";
+
+function App(){
+    useEffect(()=>{
+        const unsub = init()
+        return unsub
+    },[])
+
+    return &lt;&gt
+        &lt;button onClick="toggleTheme"&gt;{getCurrentThemeSimplified()}&lt;/button&gt;
+    &lt;/&gt;
+}
+    </code></pre>
+      <footer>
+        2022 &copy
+        <a rel="noopenner norefferer" href="https://github.com/barelyhuman"
+          >Reaper</a
+        >
+      </footer>
+    </section>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script>
+    <script type="module">
+      import {
+        init,
+        getCurrentThemeSimplified,
+        toggleTheme,
+      } from "../dist/index.js";
+      import asleep from "@carbon/icons/svg/32/asleep.svg";
+      import awake from "@carbon/icons/svg/32/awake.svg";
+
+      init();
+
+      const currentTheme = document.getElementById("currentTheme");
+      const div = document.querySelector("button");
+      const obj = document.createElement("object");
+      currentTheme.innerText = getCurrentThemeSimplified();
+      div.appendChild(obj);
+
+      div.addEventListener("click", () => {
+        toggleTheme();
+        const theme = getCurrentThemeSimplified();
+        currentTheme.innerText = theme;
+        rerenderIcon.bind(obj)();
+      });
+
+      obj.setAttribute("data", asleep);
+      obj.setAttribute("height", "32px");
+      obj.onload = function (e) {
+        rerenderIcon.bind(this)();
+      };
+
+      function rerenderIcon() {
+        const svg = this.getSVGDocument();
+        const style = getComputedStyle(document.body);
+        const color = style.getPropertyValue("--text");
+        svg.rootElement.setAttribute("fill", color);
+      }
+    </script>
+    <script>
+      hljs.highlightAll();
+    </script>
+  </body>
+</html>

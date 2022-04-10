@@ -1,6 +1,6 @@
 # themer
-One line dark mode support for javascript
 
+One line dark mode support for javascript
 
  <p>
  <img alt="GitHub" src="https://img.shields.io/github/license/barelyhuman/themer?logoColor=000&colorA=000000&colorB=000000">
@@ -9,113 +9,75 @@ One line dark mode support for javascript
  <a href="https://www.npmjs.com/package/@barelyreaper/themer"><img src="https://img.shields.io/npm/dt/@barelyreaper/themer.svg?style=flat&amp;colorA=000000&amp;colorB=000000" alt="Downloads"></a>
  </p>
 
-
-
 # About
-Themer adds a `data-dark-mode` attribute to the `body` tag on your `index.html`.
-The tag doesn't exist on the light setting and exists on the dark setting.
 
-You can use the [style.template.css](/style.template.css) as a reference on how it was intended to use though there's no limitation on how you use the above modification. You can write individual classes using the above attribute or use variables or if you've got a more creative solution, that.
+Themer adds a `dark` class to the `body` tag on the document
 
 # Usage
+
 You can use it via a CDN like unpkg or via npm using
 
+**Note: The library is an ES Module and thus needs to either be used by a web bundler or using `<script type="module">` in vanilla HTML.**
+
 ```sh
-npm i @barelyreaper/themer feather-icons
+npm i @barelyreaper/themer
 # or
-yarn add @barelyreaper/themer feather-icons
+yarn add @barelyreaper/themer
 ```
 
 Then in your js file.
 
 ```js
-import Themer from '@barelyreaper/themer`;
-
-/*
-* @param options { trigger elementRef / queryString }
-*/
-new Themer({trigger: document.querySelector('#themeToggleButton') })
-// or
-new Themer({trigger: document.getElementById('themeToggleButton') })
-// or
-new Themer({trigger: '#themeToggleButton' })
+import {
+  init, // adds a listener for handling browser's preference changes
+  getCurrentTheme, // returns a string pointing to "auto","dark","light"
+  getCurrentThemeSimplified, // returns a string pointing to "dark","light" (to be used for icons as the "auto" mode depends on a combination of preferences)
+  toggleTheme, // the handler that you'll add to your button
+} from "../dist/index.js";
 ```
 
 Write the css classes with respect to the existence of `data-dark-mode` attribute on the body tag
 
 ```css
+body {
+  --bg: #eceff4;
+  --bg-light: #e5e9f0;
+  --bg-lighter: #d8dee9;
+  --fg: #2e3440;
+  --fg-light: #3b4252;
+  --fg-lighter: #434c5e;
+  --shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+}
 
-:root {
-    --bg: #eceff4;
-    --bg-light: #e5e9f0;
-    --bg-lighter: #d8dee9;
-    --fg: #2e3440;
-    --fg-light: #3b4252;
-    --fg-lighter: #434c5e;
-    --shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
-  }
-
-  body[data-dark-mode='dark'] {
-    --bg: #121212;
-    --bg-light: #191919;
-    --bg-lighter: #252525;
-    --fg: #d8dee9;
-    --fg-light: #e5e9f0;
-    --fg-lighter: #eceff4;
-    --shadow: rgb(15 17 21 / 20%) 0px 3px 6px 0px;
-  }
-
-  /* Remaing Styles and needed Over-rides */
-  /* .... */
-
-```
-
-**NOTE**: as of v0.1.0 , `data-dark-mode` is set with `light` or `dark` based on the JS, this is to allow you to use css like below when javascript is not available/disabled and you want to the app to respect the user's system setting
-
-```css
-/* Handle default system selection when javascript is unavailable */
-@media (prefers-color-scheme: dark) {
-  body:not([data-dark-mode]) {
-    --bg: #121212;
-    --bg-light: #191919;
-    --bg-lighter: #252525;
-    --fg: #d8dee9;
-    --fg-light: #e5e9f0;
-    --fg-lighter: #eceff4;
-    --shadow: rgb(15 17 21 / 20%) 0px 3px 6px 0px;
-  }
+body.dark {
+  --bg: #121212;
+  --bg-light: #191919;
+  --bg-lighter: #252525;
+  --fg: #d8dee9;
+  --fg-light: #e5e9f0;
+  --fg-lighter: #eceff4;
+  --shadow: rgb(15 17 21 / 20%) 0px 3px 6px 0px;
 }
 ```
 
-# Advanced Usage
+# Dev
 
-You can check more examples in the [examples folder](/examples)
-
-# Dev 
 ```sh
-yarn # Install deps
-yarn dev # Run the dev watcher
-yarn link # link the themer package
-cd examples/html #(or any other example folder)
-yarn link @barelyreaper/themer
-
-# Run the appropriate dev server of the example. 
-# You can use `npx servor examples/html` for the html one
-
+pnpm i # Install deps
+pnpm dev # Run the dev watcher
+pnpm web:dev # start the web server that can be used to test the bundled library
 ```
 
-# Build 
+# Build
+
 ```sh
-yarn build
+pnpm build
 ```
 
-# Contribute 
+# Contribute
+
 - pick up an issue from the issues (do comment on the issues to avoid overlaps)
 - fork the repo
 - clone it
-- do your magic 
+- do your magic
 - raise a PR!
-
-
-
-
