@@ -1,15 +1,20 @@
-import { init, getCurrentThemeSimplified, toggleTheme } from "../dist/index.js";
+import { init, getCurrentThemeSimplified, toggleTheme } from "../dist/index";
 
 // @ts-ignore
 import asleep from "@carbon/icons/svg/32/asleep.svg";
 // @ts-ignore
 import awake from "@carbon/icons/svg/32/awake.svg";
 
-init();
-
 function main() {
   const themeTextElm = document.getElementById("theme");
   const btn = document.querySelector("button");
+
+  init({
+    onChange({ theme }) {
+      themeTextElm.innerHTML = theme;
+      icon.rerender(theme);
+    },
+  });
 
   const theme = getCurrentThemeSimplified();
 
@@ -51,9 +56,9 @@ function createSVGIcon(options) {
   return { el: icon, rerender: renderIcon.bind(icon) };
 }
 
-function renderIcon() {
-  const theme = getCurrentThemeSimplified();
-  if (theme == "dark") {
+function renderIcon(theme) {
+  const _theme = theme || getCurrentThemeSimplified();
+  if (_theme == "dark") {
     this.setAttribute("data", awake);
   } else {
     this.setAttribute("data", asleep);
