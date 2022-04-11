@@ -6,9 +6,10 @@ import { windowDarkMedia } from "./browser";
 import { getCurrentThemeSimplified } from "./getCurrentTheme";
 
 export function schemeChangeListener({ onChange }) {
-  const handler = () => {
+  const handler = (e) => {
     const pref = getStore(LOCALSTORAGE);
-    const dark = isDark();
+    const dark = e.matches;
+
     if ((pref === "auto" && dark) || pref === "dark") {
       setTargetDark(1);
     }
