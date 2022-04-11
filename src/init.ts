@@ -4,12 +4,16 @@ import { getStore } from "./storage";
 import { LOCALSTORAGE } from "./constants";
 import { setTargetDark } from "./toggleTheme";
 
+interface Init {
+  onChange: (params: { theme: string }) => void;
+}
+
 /**
  * @description to be run as soon as possible, maybe in your entry point file
  * so the Themer can setup the needed listeners for theme changes
  * @returns a function to cleanup the listeners
  */
-export function init() {
+export function init(options: Init) {
   const pref = getStore(LOCALSTORAGE);
   const dark = isDark();
 
@@ -21,5 +25,5 @@ export function init() {
     setTargetDark(0);
   }
 
-  return schemeChangeListener();
+  return schemeChangeListener({ onChange: options.onChange });
 }
