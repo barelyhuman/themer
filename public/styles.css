@@ -13,6 +13,10 @@
   src: url("../fonts/Hermit-Bold.otf") format("opentype")
 }
 
+*{
+  box-sizing: border-box;
+}
+
 :root {
   --base: #fafafa;
   --surface: #f4f4f5;
@@ -89,6 +93,10 @@ a:hover{
   display: flex;
 }
 
+.flex-1{
+  flex:1;
+}
+
 .flex-col {
   flex-direction: column;
 }
@@ -96,4 +104,16 @@ a:hover{
 .center {
   justify-content: center;
   align-items: center;
+}
+
+.w-full{
+  width:100%;
+}
+
+.ml-auto{
+  margin-left: auto;
+}
+
+.p-1{
+  padding:8px;
 }
