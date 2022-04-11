@@ -1,7 +1,19 @@
 import { isDark } from "./isDark";
 import { setStore } from "./storage";
-import { CONSTANTS } from "./constants";
+import { LOCALSTORAGE } from "./constants";
 import { getCurrentTheme } from "./getCurrentTheme";
+
+export function isTargetDark() {
+  return document.body.classList.contains("dark");
+}
+
+export function setTargetDark(bool) {
+  if (bool) {
+    document.body.classList.add("dark");
+  } else {
+    document.body.classList.remove("dark");
+  }
+}
 
 /**
  * @description toggle between dark, auto, and light
@@ -14,10 +26,10 @@ export function toggleTheme() {
   const themeIsDark = !dark && current == "dark";
 
   if (themeIsDarkAuto || themeIsDark) {
-    document.body.classList.remove("dark");
+    setTargetDark(0);
   } else {
-    document.body.classList.add("dark");
+    setTargetDark(1);
   }
 
-  setStore(CONSTANTS.LOCALSTORAGE, getCurrentTheme());
+  setStore(LOCALSTORAGE, getCurrentTheme());
 }

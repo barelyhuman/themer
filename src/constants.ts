@@ -1,3 +1,1 @@
-export const CONSTANTS = {
-  LOCALSTORAGE: "themer",
-};
+export const LOCALSTORAGE = "themer";

@@ -1,7 +1,8 @@
 import { isDark } from "./isDark";
 import { schemeChangeListener } from "./schemeChangeListener";
 import { getStore } from "./storage";
-import { CONSTANTS } from "./constants";
+import { LOCALSTORAGE } from "./constants";
+import { setTargetDark } from "./toggleTheme";
 
 /**
  * @description to be run as soon as possible, maybe in your entry point file
@@ -9,14 +10,15 @@ import { CONSTANTS } from "./constants";
  * @returns a function to cleanup the listeners
  */
 export function init() {
-  const pref = getStore(CONSTANTS.LOCALSTORAGE);
+  const pref = getStore(LOCALSTORAGE);
   const dark = isDark();
 
   if ((pref === "auto" && dark) || pref === "dark") {
-    document.body.classList.add("dark");
+    setTargetDark(1);
   }
+
   if ((pref === "auto" && !dark) || pref === "light") {
-    document.body.classList.remove("dark");
+    setTargetDark(0);
   }
 
   return schemeChangeListener();

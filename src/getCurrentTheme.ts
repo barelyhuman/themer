@@ -1,4 +1,5 @@
 import { isDark } from "./isDark";
+import { isTargetDark } from "./toggleTheme";
 
 /**
  *
@@ -6,7 +7,7 @@ import { isDark } from "./isDark";
  * active theme and system preference
  */
 export function getCurrentTheme() {
-  const activeStyleDark = document.body.classList.contains("dark");
+  const activeStyleDark = isTargetDark();
   const dark = isDark();
 
   let theme = activeStyleDark
@@ -21,7 +22,7 @@ export function getCurrentTheme() {
 }
 
 export function getCurrentThemeSimplified() {
-  const activeStyleDark = document.body.classList.contains("dark");
+  const activeStyleDark = isTargetDark();
 
   let theme = activeStyleDark ? "dark" : "light";
 
