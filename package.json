@@ -1,6 +1,6 @@
 {
   "name": "@barelyreaper/themer",
-  "version": "0.1.3",
+  "version": "1.0.0",
   "private": false,
   "description": "Graceful dark mode support in vanilla javascript",
   "keywords": [
