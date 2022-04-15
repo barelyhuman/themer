@@ -1,12 +1,82 @@
 {
+  "dist/LICENSE": {
+    "size": "1.062KB",
+    "brotli": "464B",
+    "gzip": "641B"
+  },
+  "dist/README.md": {
+    "size": "2.411KB",
+    "brotli": "897B",
+    "gzip": "1.1KB"
+  },
+  "dist/browser.d.ts": {
+    "size": "60B",
+    "brotli": "64B",
+    "gzip": "76B"
+  },
+  "dist/constants.d.ts": {
+    "size": "46B",
+    "brotli": "48B",
+    "gzip": "66B"
+  },
+  "dist/getCurrentTheme.d.ts": {
+    "size": "265B",
+    "brotli": "113B",
+    "gzip": "167B"
+  },
+  "dist/index.browser.js": {
+    "size": "3.008KB",
+    "brotli": "792B",
+    "gzip": "942B"
+  },
+  "dist/index.cjs": {
+    "size": "2.584KB",
+    "brotli": "682B",
+    "gzip": "809B"
+  },
   "dist/index.d.ts": {
-    "size": "615B",
-    "brotli": "218B",
-    "gzip": "303B"
+    "size": "230B",
+    "brotli": "93B",
+    "gzip": "111B"
   },
   "dist/index.js": {
-    "size": "978B",
-    "brotli": "389B",
-    "gzip": "471B"
+    "size": "2.925KB",
+    "brotli": "763B",
+    "gzip": "905B"
+  },
+  "dist/index.mjs": {
+    "size": "2.34KB",
+    "brotli": "611B",
+    "gzip": "727B"
+  },
+  "dist/init.d.ts": {
+    "size": "353B",
+    "brotli": "170B",
+    "gzip": "239B"
+  },
+  "dist/isDark.d.ts": {
+    "size": "43B",
+    "brotli": "47B",
+    "gzip": "63B"
+  },
+  "dist/package.json": {
+    "size": "769B",
+    "brotli": "292B",
+    "gzip": "369B"
+  },
+  "dist/schemeChangeListener.d.ts": {
+    "size": "96B",
+    "brotli": "68B",
+    "gzip": "102B"
+  },
+  "dist/storage.d.ts": {
+    "size": "72B",
+    "brotli": "44B",
+    "gzip": "62B"
+  },
+  "dist/toggleTheme.d.ts": {
+    "size": "162B",
+    "brotli": "97B",
+    "gzip": "136B"
   }
 }
