@@ -2,7 +2,7 @@
   "name": "@barelyreaper/themer",
   "version": "0.1.3",
   "private": false,
-  "description": "One line dark mode support for javascript",
+  "description": "Graceful dark mode support in vanilla javascript",
   "keywords": [
     "dark theme",
     "dark",
