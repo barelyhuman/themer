@@ -1,5 +1,8 @@
-import { isDark } from "./isDark";
-import { isTargetDark } from "./toggleTheme";
+import {isDark} from './isDark'
+
+export function isTargetDark() {
+	return document.body.classList.contains('dark')
+}
 
 /**
  *
@@ -7,24 +10,24 @@ import { isTargetDark } from "./toggleTheme";
  * active theme and system preference
  */
 export function getCurrentTheme() {
-  const activeStyleDark = isTargetDark();
-  const dark = isDark();
+	const activeStyleDark = isTargetDark()
+	const dark = isDark()
 
-  let theme = activeStyleDark
-    ? dark
-      ? "auto"
-      : "dark"
-    : dark
-    ? "light"
-    : "auto";
+	let theme = activeStyleDark
+		? dark
+			? 'auto'
+			: 'dark'
+		: dark
+		? 'light'
+		: 'auto'
 
-  return theme;
+	return theme
 }
 
 export function getCurrentThemeSimplified() {
-  const activeStyleDark = isTargetDark();
+	const activeStyleDark = isTargetDark()
 
-  let theme = activeStyleDark ? "dark" : "light";
+	let theme = activeStyleDark ? 'dark' : 'light'
 
-  return theme;
+	return theme
 }
