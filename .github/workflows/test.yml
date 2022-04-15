@@ -1,0 +1,24 @@
+name: Test
+on:
+  push:
+    branches: [dev]
+  pull_request:
+    branches: [dev]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+      - uses: pnpm/action-setup@v2.1.0
+        with:
+          version: 6.0.2
+      - name: Test
+        run: |
+          npm i -g @antfu/ni
+          ni
+          nr test

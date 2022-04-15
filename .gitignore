@@ -1,3 +1,5 @@
 node_modules
-/dist
-.next
+dist
+.parcel-cache
+www
+.DS_Store

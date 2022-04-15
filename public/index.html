@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Themer</title>
+
+    <title>Themer</title>
+    <meta name="title" content="Themer" />
+    <meta name="description" content="Graceful dark mode for javascript apps" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://themer.reaper.im" />
+    <meta property="og:title" content="Themer" />
+    <meta
+      property="og:description"
+      content="Graceful dark mode for javascript apps"
+    />
+    <meta property="og:image" content="" />
+
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://themer.reaper.im" />
+    <meta property="twitter:title" content="Themer" />
+    <meta
+      property="twitter:description"
+      content="Graceful dark mode for javascript apps"
+    />
+    <meta property="twitter:image" content="" />
+
+    <link
+      rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/atom-one-dark.min.css"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <section id="app" class="flex flex-col center">
+      <button></button>
+      <noscript>
+        Themed based on system preference
+      </noscript>
+      <p id="theme"></p>
+      <div class="w-full flex p-1">
+        <a
+          class="ml-auto"
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://github.com/barelyhuman/themer"
+          >Github</a
+        >
+      </div>
+      <pre><code class="language-bash">
+$ npm i @barelyreaper/themer
+      </code></pre>
+
+      <pre><code>
+// Example below is in React, but the library is framework agnostic
+import {init,getCurrentThemeSimplified,toggleTheme} from "@barelyreaper/themer";
+
+function App(){
+    useEffect(()=>{
+        const unsub = init()
+        return unsub
+    },[])
+
+    return &lt;&gt
+        &lt;button onClick="toggleTheme"&gt;{getCurrentThemeSimplified()}&lt;/button&gt;
+    &lt;/&gt;
+}
+    </code></pre>
+      <footer>
+        2022 &copy
+        <a
+          rel="noopener noreferrer"
+          target="_blank"
+          href="https://github.com/barelyhuman"
+          >Reaper</a
+        >
+      </footer>
+    </section>
+    <script src="../dist/index.browser.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script>
+    <script type="module" src="./script.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script>
+  </body>
+</html>
