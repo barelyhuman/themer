@@ -7,6 +7,9 @@ import {getCurrentTheme, init, toggleTheme} from '../src'
 test.before(ENV.setup)
 test.before.each(ENV.reset)
 
+const isDarkInTest = () =>
+	document.body.getAttribute('data-dark-mode') === 'dark'
+
 test('should be auto, if system is light', () => {
 	ENV.setSystemTheme('light')
 	const spyProxy = sinon.spy(init)
@@ -50,7 +53,7 @@ test('should have dark class on body', () => {
 	if (getCurrentTheme() === 'light') {
 		toggleTheme()
 	}
-	assert.ok(document.body.classList.contains('dark'))
+	assert.ok(isDarkInTest())
 })
 
 test('should not have dark class on body', () => {
@@ -60,7 +63,7 @@ test('should not have dark class on body', () => {
 	if (getCurrentTheme() === 'dark') {
 		toggleTheme()
 	}
-	assert.not.ok(document.body.classList.contains('dark'))
+	assert.not.ok(isDarkInTest())
 })
 
 test.run()

@@ -25,14 +25,14 @@
     "gzip": "167B"
   },
   "dist/index.browser.js": {
-    "size": "3.008KB",
-    "brotli": "792B",
-    "gzip": "942B"
+    "size": "3.055KB",
+    "brotli": "795B",
+    "gzip": "952B"
   },
   "dist/index.cjs": {
-    "size": "2.584KB",
-    "brotli": "682B",
-    "gzip": "809B"
+    "size": "2.631KB",
+    "brotli": "691B",
+    "gzip": "823B"
   },
   "dist/index.d.ts": {
     "size": "230B",
@@ -40,14 +40,14 @@
     "gzip": "111B"
   },
   "dist/index.js": {
-    "size": "2.925KB",
-    "brotli": "763B",
-    "gzip": "905B"
+    "size": "2.972KB",
+    "brotli": "757B",
+    "gzip": "917B"
   },
   "dist/index.mjs": {
-    "size": "2.34KB",
-    "brotli": "611B",
-    "gzip": "727B"
+    "size": "2.387KB",
+    "brotli": "625B",
+    "gzip": "738B"
   },
   "dist/init.d.ts": {
     "size": "353B",

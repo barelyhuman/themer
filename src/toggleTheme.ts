@@ -5,9 +5,9 @@ import {getCurrentTheme} from './getCurrentTheme'
 
 export function setTargetDark(bool) {
 	if (bool) {
-		document.body.classList.add('dark')
+		document.body.setAttribute('data-dark-mode', 'dark')
 	} else {
-		document.body.classList.remove('dark')
+		document.body.setAttribute('data-dark-mode', 'light')
 	}
 }
 

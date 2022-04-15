@@ -1,7 +1,7 @@
 import {isDark} from './isDark'
 
 export function isTargetDark() {
-	return document.body.classList.contains('dark')
+	return document.body.getAttribute('data-dark-mode') === 'dark'
 }
 
 /**

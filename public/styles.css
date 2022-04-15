@@ -1,119 +1,128 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
 
-
 @font-face {
-  font-family: "Hermit";
-  font-weight: 400;
-  src: url("../fonts/Hermit-Regular.otf") format("opentype")
+	font-family: 'Hermit';
+	font-weight: 400;
+	src: url('../fonts/Hermit-Regular.otf') format('opentype');
 }
 
 @font-face {
-  font-family: "Hermit";
-  font-weight: 600;
-  src: url("../fonts/Hermit-Bold.otf") format("opentype")
+	font-family: 'Hermit';
+	font-weight: 600;
+	src: url('../fonts/Hermit-Bold.otf') format('opentype');
 }
 
-*{
-  box-sizing: border-box;
+* {
+	box-sizing: border-box;
 }
 
 :root {
-  --base: #fafafa;
-  --surface: #f4f4f5;
-  --text: #3f3f46;
-  --muted: #a1a1aa;
-
-  --font-sans: "Ubuntu", sans-serif;
-  --font-mono: "Hermit", monospace;
+	--base: #fafafa;
+	--surface: #f4f4f5;
+	--text: #3f3f46;
+	--muted: #a1a1aa;
+	--font-sans: 'Ubuntu', sans-serif;
+	--font-mono: 'Hermit', monospace;
 }
 
 html,
 body,
 #app {
-  min-height: 100vh;
-  margin: 0;
-  padding: 0;
+	min-height: 100vh;
+	margin: 0;
+	padding: 0;
 }
 
 body {
-  max-width: 100ch;
-  margin:0 auto;
-  font-family: var(--font-sans);
-  background: var(--base);
-  color: var(--text);
+	max-width: 100ch;
+	margin: 0 auto;
+	font-family: var(--font-sans);
+	background: var(--base);
+	color: var(--text);
 }
 
-body.dark {
-  --base: #18181b;
-  --surface: #27272a;
-  --text: #f4f4f5;
+body[data-dark-mode='dark'] {
+	--base: #18181b;
+	--surface: #27272a;
+	--text: #f4f4f5;
 }
 
 button {
-  background: var(--base);
-  border-radius: 6px;
-  color: red;
-  border: 0px;
-  height: 42px;
-  width: 42px;
+	background: var(--base);
+	border-radius: 6px;
+	color: red;
+	border: 0px;
+	height: 42px;
+	width: 42px;
 }
 
 button:hover {
-  background: var(--surface);
+	background: var(--surface);
 }
 
 object {
-  pointer-events: none;
+	pointer-events: none;
 }
 
 pre {
-  width:100%;
-  line-height: 1.5;
-  font-size: 13.5px;
+	display: inline-flex;
+	justify-content: center;
+	width: 100%;
+	line-height: 1.5;
+	font-size: 13.5px;
 }
 
 pre > code {
-  padding: 1em 2.5em !important;
-  box-sizing: border-box;
-  font-family: var(--font-mono);
-  background: var(--surface);
-  border-radius: 10px;
+	width: 100%;
+	padding: 1em 2.5em !important;
+	box-sizing: border-box;
+	font-family: var(--font-mono);
+	background: var(--surface);
+	border-radius: 10px;
 }
 
-a{
-  color: var(--muted);
-  text-decoration: none;
+a {
+	color: var(--muted);
+	text-decoration: none;
 }
 
-a:hover{
-  color: var(--text);
+a:hover {
+	color: var(--text);
 }
 
 .flex {
-  display: flex;
+	display: flex;
 }
 
-.flex-1{
-  flex:1;
+.flex-1 {
+	flex: 1;
 }
 
 .flex-col {
-  flex-direction: column;
+	flex-direction: column;
 }
 
 .center {
-  justify-content: center;
-  align-items: center;
+	justify-content: center;
+	align-items: center;
 }
 
-.w-full{
-  width:100%;
+.w-full {
+	width: 100%;
 }
 
-.ml-auto{
-  margin-left: auto;
+.ml-auto {
+	margin-left: auto;
 }
 
-.p-1{
-  padding:8px;
+.p-1 {
+	padding: 8px;
+}
+
+@media (prefers-color-scheme: dark) {
+	body:not([data-dark-mode]) {
+		--base: #18181b;
+		--surface: #27272a;
+		--text: #f4f4f5;
+	}
 }

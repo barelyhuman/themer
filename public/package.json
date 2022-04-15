@@ -1,0 +1,12 @@
+{
+  "name": "public",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "dev": "parcel index.html",
+    "build": "parcel build"
+  },
+  "devDependencies": {
+    "parcel": "^2.4.1"
+  }
+}
