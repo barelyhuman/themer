@@ -5,9 +5,9 @@
     "gzip": "641B"
   },
   "dist/README.md": {
-    "size": "2.411KB",
-    "brotli": "897B",
-    "gzip": "1.1KB"
+    "size": "3.136KB",
+    "brotli": "1.214KB",
+    "gzip": "1.517KB"
   },
   "dist/browser.d.ts": {
     "size": "60B",
@@ -60,9 +60,9 @@
     "gzip": "63B"
   },
   "dist/package.json": {
-    "size": "769B",
-    "brotli": "292B",
-    "gzip": "369B"
+    "size": "821B",
+    "brotli": "324B",
+    "gzip": "390B"
   },
   "dist/schemeChangeListener.d.ts": {
     "size": "96B",
