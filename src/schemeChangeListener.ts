@@ -1,25 +1,17 @@
-import {isDark} from './isDark'
-import {getStore} from './storage'
-import {LOCALSTORAGE} from './constants'
-import {setTargetDark} from './toggleTheme'
 import {windowDarkMedia} from './browser'
-import {getCurrentThemeSimplified} from './getCurrentTheme'
+import {LOCALSTORAGE} from './constants'
+import {getStore} from './storage'
+import {getCurrentTheme, setTheme} from './theme'
 
-export function schemeChangeListener({onChange}) {
-	const handler = e => {
+export function schemeChangeListener({onChange = ({theme = ''}) => {}}) {
+	const handler = _ => {
 		const pref = getStore(LOCALSTORAGE)
-		const dark = e.matches
 
-		if ((pref === 'auto' && dark) || pref === 'dark') {
-			setTargetDark(1)
-		}
-		if ((pref === 'auto' && !dark) || pref === 'light') {
-			setTargetDark(0)
-		}
+		setTheme(pref || 'default')
 
 		onChange &&
 			typeof onChange === 'function' &&
-			onChange({theme: getCurrentThemeSimplified()})
+			onChange({theme: getCurrentTheme()})
 	}
 
 	windowDarkMedia().addEventListener('change', handler)

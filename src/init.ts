@@ -1,11 +1,13 @@
+import {LOCALSTORAGE} from './constants'
 import {isDark} from './isDark'
 import {schemeChangeListener} from './schemeChangeListener'
 import {getStore} from './storage'
-import {LOCALSTORAGE} from './constants'
-import {setTargetDark} from './toggleTheme'
+import {setTheme} from './theme'
 
 interface Init {
 	onChange?: (params: {theme: string}) => void
+	lightPref?: string
+	darkPref?: string
 }
 
 /**
@@ -13,17 +15,25 @@ interface Init {
  * so the Themer can setup the needed listeners for theme changes
  * @returns a function to cleanup the listeners
  */
-export function init(options?: Init) {
+export function init({
+	onChange = () => {},
+	lightPref = 'light',
+	darkPref = 'dark',
+}: Init = {}) {
 	const pref = getStore(LOCALSTORAGE)
+
+	// Browser is in dark mode
 	const dark = isDark()
 
-	if ((pref === 'auto' && dark) || pref === 'dark') {
-		setTargetDark(1)
+	if (!pref?.length) {
+		if (dark) {
+			setTheme(darkPref)
+		} else {
+			setTheme(lightPref)
+		}
+	} else {
+		setTheme(pref)
 	}
 
-	if ((pref === 'auto' && !dark) || pref === 'light') {
-		setTargetDark(0)
-	}
-
-	return schemeChangeListener({onChange: options?.onChange})
+	return schemeChangeListener({onChange: onChange})
 }

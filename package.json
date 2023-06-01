@@ -82,8 +82,5 @@
 		"files": [
 			"dist/*"
 		]
-	},
-	"dependencies": {
-		"add": "^2.0.6"
 	}
 }

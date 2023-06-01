@@ -80,12 +80,6 @@ function createCommonJSConfig(input, output) {
 		output: {file: `${output}.cjs`, format: 'cjs', exports: 'named'},
 		external,
 		plugins: [
-			alias({
-				entries: {
-					'./vanilla': 'valtio/vanilla',
-					'../vanilla': 'valtio/vanilla',
-				},
-			}),
 			resolve({extensions}),
 			replace({
 				__DEV__: 'process.env.NODE_ENV!=="production"',
@@ -107,12 +101,6 @@ function createUMDConfig(input, output, env) {
 		},
 		external,
 		plugins: [
-			alias({
-				entries: {
-					'./vanilla': 'valtio/vanilla',
-					'../vanilla': 'valtio/vanilla',
-				},
-			}),
 			resolve({extensions}),
 			replace({
 				__DEV__: env !== 'production' ? 'true' : 'false',
@@ -120,32 +108,6 @@ function createUMDConfig(input, output, env) {
 			}),
 			babelPlugin(getBabelOptions({ie: 11})),
 			...(env === 'production' ? [terser()] : []),
-		],
-	}
-}
-
-function createSystemConfig(input, output, env) {
-	return {
-		input,
-		output: {
-			file: `${output}.${env}.js`,
-			format: 'system',
-			exports: 'named',
-		},
-		external,
-		plugins: [
-			alias({
-				entries: {
-					'./vanilla': 'valtio/vanilla',
-					'../vanilla': 'valtio/vanilla',
-				},
-			}),
-			resolve({extensions}),
-			replace({
-				__DEV__: env !== 'production' ? 'true' : 'false',
-				preventAssignment: true,
-			}),
-			getEsbuild('node14', env),
 		],
 	}
 }

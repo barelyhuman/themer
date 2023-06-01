@@ -1,5 +1,4 @@
-import {getCurrentThemeSimplified, getCurrentTheme} from './getCurrentTheme'
+import {getCurrentTheme, setTheme} from './theme'
 import {init} from './init'
-import {toggleTheme} from './toggleTheme'
 
-export {init, toggleTheme, getCurrentThemeSimplified, getCurrentTheme}
+export {init, setTheme, getCurrentTheme}

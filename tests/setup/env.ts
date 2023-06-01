@@ -7,10 +7,13 @@ let matchMediaStub
 let localStorageMock = {}
 export function setup() {
 	try {
+		//@ts-expect-error TS thinks it's in the browser
 		global.window = window
 		global.document = window.document
 		global.navigator = window.navigator
 		global.getComputedStyle = window.getComputedStyle
+
+		//@ts-expect-error TS thinks it's in the browser
 		global.requestAnimationFrame = null
 		global.window.matchMedia = (): any => {}
 
