@@ -25,7 +25,7 @@ export function init({
 	// Browser is in dark mode
 	const dark = isDark()
 
-	if (!pref?.length) {
+	if (!(pref && pref.length)) {
 		if (dark) {
 			setTheme(darkPref)
 		} else {

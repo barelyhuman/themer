@@ -36,10 +36,9 @@ Then in your js file.
 
 ```js
 import {
-	init, // adds a listener for handling browser's preference changes
-	getCurrentTheme, // returns a string pointing to "auto","dark","light"
-	getCurrentThemeSimplified, // returns a string pointing to "dark","light" (to be used for icons as the "auto" mode depends on a combination of preferences)
-	toggleTheme, // the handler that you'll add to your button
+	init, // adds a listener for handling browser's preference changes and the initial loading state
+	getCurrentTheme, // get the current theme string from storage, this could be any string value that you set from `setTheme`
+	setTheme, // provides a simple function to store the theme preference in the localStorage
 } from '@barelyreaper/themer'
 ```
 
@@ -47,14 +46,36 @@ import {
 <!-- might wanna version lock the url by opening it in the browser first to get a version tagged url -->
 <script src="https://unpkg.com/@barelyreaper/themer/index.browser.js"></script>
 <script>
-	const {init, getCurrentTheme, getCurrentThemeSimplified, toggleTheme} = themer
+	const {init, getCurrentTheme, setTheme} = themer
+
+	const unsub = init({
+		lightPref: 'light', // default light preference
+		darkPref: 'dark', // default dark preference
+		onChange: () => {
+			const theme = getCurrentTheme()
+			console.log('theme changed to:',${theme})
+			// reset icons
+			// move toggles, etc etc
+		},
+	})
+
+	setTheme('light') // set theme to use `light` colors
+	setTheme('dark') // set theme to use `dark` colors
+	setTheme('rose') // set theme to use `rose` colors
+	setTheme('') // set theme to use system defined themes
+
+	// unsub on destruction of your component or page
+	// if necessary
+	unsub()
 </script>
 ```
 
-Write the css classes with respect to the existence of `data-dark-mode` attribute on the body tag
+Write the css classes with respect to the existence of `data-theme` attribute on the body tag
 
 ```css
-body {
+/* set a theme for both default state and the light theme */
+body,
+body[data-theme='light'] {
 	--bg: #eceff4;
 	--bg-light: #e5e9f0;
 	--bg-lighter: #d8dee9;
@@ -64,7 +85,7 @@ body {
 	--shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
 }
 
-body.dark {
+body[data-theme='dark'] {
 	--bg: #121212;
 	--bg-light: #191919;
 	--bg-lighter: #252525;
@@ -72,6 +93,29 @@ body.dark {
 	--fg-light: #e5e9f0;
 	--fg-lighter: #eceff4;
 	--shadow: rgb(15 17 21 / 20%) 0px 3px 6px 0px;
+}
+
+body[data-theme='rose'] {
+	--bg: #faf4ed;
+	--bg-light: #fffaf3;
+	--bg-lighter: #f2e9e1;
+	--fg: #575279;
+	--fg-light: #797593;
+	--fg-lighter: #9893a5;
+	--shadow: rgb(15 17 21 / 20%) 0px 3px 6px 0px;
+}
+
+/* Default dark mode if no JS is present */
+@media (prefers-color-scheme: dark) {
+	body:not([data-theme]) {
+		--bg: #121212;
+		--bg-light: #191919;
+		--bg-lighter: #252525;
+		--fg: #d8dee9;
+		--fg-light: #e5e9f0;
+		--fg-lighter: #eceff4;
+		--shadow: rgb(15 17 21 / 20%) 0px 3px 6px 0px;
+	}
 }
 ```
 

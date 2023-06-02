@@ -1,6 +1,6 @@
-// import { init, getCurrentThemeSimplified, toggleTheme } from "../dist/index";
+import {init, getCurrentTheme, setTheme} from '../dist/index'
 
-const {init, getCurrentThemeSimplified, toggleTheme} = themer
+// const {init, getCurrentThemeSimplified, toggleTheme} = themer
 
 // @ts-ignore
 import asleep from '@carbon/icons/svg/32/asleep.svg'
@@ -10,6 +10,7 @@ import awake from '@carbon/icons/svg/32/awake.svg'
 function main() {
 	const themeTextElm = document.getElementById('theme')
 	const btn = document.querySelector('button')
+	const next = () => (getCurrentTheme() === 'dark' ? 'light' : 'dark')
 
 	init({
 		onChange({theme}) {
@@ -18,18 +19,18 @@ function main() {
 		},
 	})
 
-	const theme = getCurrentThemeSimplified()
+	const theme = getCurrentTheme()
 
 	// set current theme text
-	themeTextElm.innerText = theme
+	themeTextElm.innerText = next()
 
 	const icon = createSVGIcon({theme})
 
 	btn.appendChild(icon.el)
 
 	btn.addEventListener('click', () => {
-		toggleTheme()
-		themeTextElm.innerText = getCurrentThemeSimplified()
+		setTheme(next())
+		themeTextElm.innerText = next()
 		icon.rerender()
 	})
 }
@@ -59,7 +60,7 @@ function createSVGIcon(options) {
 }
 
 function renderIcon(theme) {
-	const _theme = theme || getCurrentThemeSimplified()
+	const _theme = theme || getCurrentTheme()
 	if (_theme == 'dark') {
 		this.setAttribute('data', awake)
 	} else {

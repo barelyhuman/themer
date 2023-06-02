@@ -8,5 +8,8 @@
   },
   "devDependencies": {
     "parcel": "^2.4.1"
+  },
+  "dependencies": {
+    "navigo": "^8.11.1"
   }
 }

@@ -41,7 +41,14 @@ body {
 	color: var(--text);
 }
 
-body[data-dark-mode='dark'] {
+body[data-theme='light'] {
+	--base: #fafafa;
+	--surface: #f4f4f5;
+	--text: #3f3f46;
+	--muted: #a1a1aa;
+}
+
+body[data-theme='dark'] {
 	--base: #18181b;
 	--surface: #27272a;
 	--text: #f4f4f5;
@@ -81,6 +88,11 @@ pre > code {
 	border-radius: 10px;
 }
 
+pre > .hljs{
+	background: var(--base);
+	border: 1px dashed var(--muted);
+}
+
 a {
 	color: var(--muted);
 	text-decoration: none;
@@ -102,6 +114,11 @@ a:hover {
 	flex-direction: column;
 }
 
+
+.gap-2{
+	gap: 8px;
+}
+
 .center {
 	justify-content: center;
 	align-items: center;
@@ -119,8 +136,18 @@ a:hover {
 	padding: 8px;
 }
 
+.badge {
+	padding: 4px 8px;
+	border-radius: 8px;
+}
+
+.badge.success{
+	background: lightseagreen;
+	color: white;
+}
+
 @media (prefers-color-scheme: dark) {
-	body:not([data-dark-mode]) {
+	body:not([data-theme]) {
 		--base: #18181b;
 		--surface: #27272a;
 		--text: #f4f4f5;
