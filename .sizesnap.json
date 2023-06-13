@@ -5,9 +5,9 @@
     "gzip": "641B"
   },
   "dist/README.md": {
-    "size": "3.136KB",
-    "brotli": "1.214KB",
-    "gzip": "1.517KB"
+    "size": "4.221KB",
+    "brotli": "1.532KB",
+    "gzip": "1.905KB"
   },
   "dist/browser.d.ts": {
     "size": "60B",
@@ -20,14 +20,14 @@
     "gzip": "95B"
   },
   "dist/index.browser.js": {
-    "size": "2.438KB",
-    "brotli": "726B",
-    "gzip": "868B"
+    "size": "2.617KB",
+    "brotli": "759B",
+    "gzip": "913B"
   },
   "dist/index.cjs": {
-    "size": "2.034KB",
-    "brotli": "616B",
-    "gzip": "736B"
+    "size": "2.209KB",
+    "brotli": "652B",
+    "gzip": "781B"
   },
   "dist/index.d.ts": {
     "size": "128B",
@@ -35,19 +35,19 @@
     "gzip": "92B"
   },
   "dist/index.js": {
-    "size": "2.01KB",
-    "brotli": "618B",
-    "gzip": "779B"
+    "size": "2.064KB",
+    "brotli": "643B",
+    "gzip": "801B"
   },
   "dist/index.mjs": {
-    "size": "1.55KB",
-    "brotli": "491B",
-    "gzip": "602B"
+    "size": "1.604KB",
+    "brotli": "526B",
+    "gzip": "625B"
   },
   "dist/init.d.ts": {
-    "size": "426B",
-    "brotli": "202B",
-    "gzip": "264B"
+    "size": "427B",
+    "brotli": "204B",
+    "gzip": "266B"
   },
   "dist/isDark.d.ts": {
     "size": "43B",
@@ -60,9 +60,9 @@
     "gzip": "370B"
   },
   "dist/schemeChangeListener.d.ts": {
-    "size": "96B",
-    "brotli": "68B",
-    "gzip": "102B"
+    "size": "146B",
+    "brotli": "93B",
+    "gzip": "119B"
   },
   "dist/storage.d.ts": {
     "size": "72B",
