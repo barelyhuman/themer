@@ -5,9 +5,9 @@
     "gzip": "641B"
   },
   "dist/README.md": {
-    "size": "2.411KB",
-    "brotli": "897B",
-    "gzip": "1.1KB"
+    "size": "3.136KB",
+    "brotli": "1.214KB",
+    "gzip": "1.517KB"
   },
   "dist/browser.d.ts": {
     "size": "60B",
@@ -15,44 +15,39 @@
     "gzip": "76B"
   },
   "dist/constants.d.ts": {
-    "size": "46B",
-    "brotli": "48B",
-    "gzip": "66B"
-  },
-  "dist/getCurrentTheme.d.ts": {
-    "size": "265B",
-    "brotli": "113B",
-    "gzip": "167B"
+    "size": "99B",
+    "brotli": "79B",
+    "gzip": "95B"
   },
   "dist/index.browser.js": {
-    "size": "3.055KB",
-    "brotli": "795B",
-    "gzip": "952B"
+    "size": "2.438KB",
+    "brotli": "726B",
+    "gzip": "868B"
   },
   "dist/index.cjs": {
-    "size": "2.631KB",
-    "brotli": "691B",
-    "gzip": "823B"
+    "size": "2.034KB",
+    "brotli": "616B",
+    "gzip": "736B"
   },
   "dist/index.d.ts": {
-    "size": "230B",
-    "brotli": "93B",
-    "gzip": "111B"
+    "size": "128B",
+    "brotli": "91B",
+    "gzip": "92B"
   },
   "dist/index.js": {
-    "size": "2.972KB",
-    "brotli": "757B",
-    "gzip": "917B"
+    "size": "2.01KB",
+    "brotli": "618B",
+    "gzip": "779B"
   },
   "dist/index.mjs": {
-    "size": "2.387KB",
-    "brotli": "625B",
-    "gzip": "738B"
+    "size": "1.55KB",
+    "brotli": "491B",
+    "gzip": "602B"
   },
   "dist/init.d.ts": {
-    "size": "353B",
-    "brotli": "170B",
-    "gzip": "239B"
+    "size": "426B",
+    "brotli": "202B",
+    "gzip": "264B"
   },
   "dist/isDark.d.ts": {
     "size": "43B",
@@ -60,9 +55,9 @@
     "gzip": "63B"
   },
   "dist/package.json": {
-    "size": "769B",
-    "brotli": "292B",
-    "gzip": "369B"
+    "size": "776B",
+    "brotli": "300B",
+    "gzip": "370B"
   },
   "dist/schemeChangeListener.d.ts": {
     "size": "96B",
@@ -74,9 +69,9 @@
     "brotli": "44B",
     "gzip": "62B"
   },
-  "dist/toggleTheme.d.ts": {
-    "size": "162B",
-    "brotli": "97B",
-    "gzip": "136B"
+  "dist/theme.d.ts": {
+    "size": "261B",
+    "brotli": "123B",
+    "gzip": "163B"
   }
 }

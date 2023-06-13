@@ -49,27 +49,43 @@
 					>Github</a
 				>
 			</div>
-			<pre><code class="language-bash">
-$ npm i @barelyreaper/themer
-      </code></pre>
+			<div>
+				<main>
+					<h1>@barelyreaper/themer</h1>
+					<p>
+						<strong>themer</strong> is an attempt to make a tiny library that
+						can work everywhere while being consistent and non-obstrusive to the
+						browser's own behaviour.
+					</p>
+					<p>
+						This lead to being able to create dark and light mode styles without
+						totally depending on JS, your stylesheet could controll what was
+						shown if no JS was enabled.
+					</p>
+					<p>
+						This was limited to just <em>dark</em> and <em>light</em> themes in
+						<code>v1</code> which was fine but kinda limiting to my current use
+						cases where I might have more than the 2 defaults.
+					</p>
+					<br />
+					<br />
+					<h2>
+						v2.0.0 <small class="badge success"><code>Latest</code></small>
+					</h2>
+					<p>
+						The latest version adds in the additional functionality of being
+						able to set dynamic strings, meaning, you can define more than just
+						dark and light as valid themes
+					</p>
 
-			<pre><code>
-// Example below is in React, but the library is framework agnostic
-import {init,getCurrentTheme,setTheme} from "@barelyreaper/themer";
-
-function App(){
-    useEffect(()=>{
-        const unsub = init()
-        return unsub
-    },[])
-
-    const toggle = () => setTheme(getCurrentTheme()==="dark"?"light":"dark")
-
-    return &lt;&gt
-        &lt;button onClick="toggle"&gt;{getCurrentTheme()}&lt;/button&gt;
-    &lt;/&gt;
-}
-    </code></pre>
+					<p>
+						For more documentation and themeing, go through the project
+						<a href="https://github.com/barelyhuman/themer/blob/dev/README.md"
+							>README.md</a
+						>
+					</p>
+				</main>
+			</div>
 			<footer>
 				2022 &copy
 				<a
