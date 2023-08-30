@@ -9,7 +9,7 @@
 
 ## How ?
 
-by adding `data-dark-mode` attribute to the `body` tag on the document, aka you can use css selectors to either use custom css or use system preference, in case there's no JS
+by adding `data-theme` attribute to the `body` tag on the document, aka you can use css selectors to either use custom css or use system preference, in case there's no JS
 
 ## Mandatory 4 Feature points
 
